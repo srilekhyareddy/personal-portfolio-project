@@ -1,16 +1,30 @@
-<h1>This is my portfolio </h1>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Srilekhya's portfolio</title>
+</head>
 
-{% for project in projects %}
+<body>
+	<h1>Srilekhya's Portfolio</h1>
+	{% load static %}
+	<a href = "{% static 'portfolio/resume.pdf' %}">Resume</a><br>
+	<img src = "{% static 'portfolio/image2.png' %}" height= 200px object-fit: cover>
 
-<h2>{{ project.title }} </h2>
+	{% for project in projects %}
 
-<p> {{ project.description}} </p>
+	<h2>{{ project.title }} </h2>
 
-<img src = "{{ project.image.url }}" height= 200px width = 400px><br>
+	<p> {{ project.description}} </p>
 
-{% if project.url %}
-<a href = "{{ project.url }}"> Link </a>
+	<img src = "{{ project.image.url }}" height= 200px width = 400px><br>
 
-{% endif %}
+	{% if project.url %}
+	<a href = "{{ project.url }}"> Link </a>
 
-{% endfor %}
+	{% endif %}
+
+	{% endfor %}
+</body>
+
+</html>
+
